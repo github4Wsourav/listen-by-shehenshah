@@ -1,7 +1,16 @@
 # 🎵 LISTEN by shehenshah
 
-> **Next-generation, high-fidelity music streaming, co-listening & audio enhancement desktop player.**  
+> **Next-generation, high-fidelity music streaming, co-listening & audio enhancement desktop & mobile player.**  
 > Created by **shehenshah (Sourav)**.
+
+[![Download Android APK](https://img.shields.io/badge/Download_APK-v1.0.0-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/github4Wsourav/listen-by-shehenshah/releases/download/v1.0.0/LISTEN-by-shehenshah.apk)
+[![FxSound Powered](https://img.shields.io/badge/FxSound-64--bit_DSP_Audio-00E5FF?style=for-the-badge&logo=soundcharts&logoColor=black)](https://github.com/fxsound2/fxsound-app)
+
+---
+
+### 📥 Download App
+* 📱 **Download Android APK (Direct)**: **[LISTEN-by-shehenshah.apk (v1.0.0)](https://github.com/github4Wsourav/listen-by-shehenshah/releases/download/v1.0.0/LISTEN-by-shehenshah.apk)**
+* 💻 **Windows Desktop App**: Run `LISTEN by shehenshah.exe` from `dist/win-unpacked/` or use the Desktop shortcut.
 
 ---
 
