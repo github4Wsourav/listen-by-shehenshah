@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LISTEN by shehenshah</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- App Main Layout -->
+  <div class="app-container">
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand-header">
+        <div class="brand-icon">
+          <!-- Audio Waveform / Note Icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>LISTEN</h1>
+          <p>by shehenshah</p>
+        </div>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-label">Menu</span>
+        <div class="nav-item active" data-view="home">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span>Home</span>
+        </div>
+        <div class="nav-item" data-view="search">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <span>Search</span>
+        </div>
+        <div class="nav-item" data-view="library">
+          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+          <span>Your Library</span>
+        </div>
+        <div class="nav-item" data-view="downloads">
+          <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+          <span>Downloads</span>
+          <span class="nav-badge" id="downloads-badge">0</span>
+        </div>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-label">Social & Sound</span>
+        <div class="nav-item" data-view="listen-together">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span>Listen Together</span>
+          <span class="nav-badge live" id="live-session-badge" style="display: none;">LIVE</span>
+        </div>
+        <div class="nav-item" data-view="fxsound">
+          <svg viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/></svg>
+          <span>FxSound Audio</span>
+          <span class="nav-badge" style="background:#00e5ff; color:#090a0f;">DSP</span>
+        </div>
+        <div class="nav-item" data-view="settings">
+          <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <span>Settings & About</span>
+        </div>
+      </div>
+
+      <!-- Google User Profile in Sidebar -->
+      <div class="sidebar-user-card" id="sidebar-user-card">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80" alt="Avatar" class="user-avatar" id="sidebar-user-avatar">
+        <div class="user-details">
+          <div class="user-name" id="sidebar-user-name">Sourav Roy</div>
+          <div class="user-badge" id="sidebar-user-status">
+            <svg style="width:12px;height:12px;fill:#00e676" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Google Connected
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main View Content Area -->
+    <main class="main-view">
+
+      <!-- Top Sticky App Bar -->
+      <header class="top-bar">
+        <div class="search-box-wrapper">
+          <svg style="width:18px;height:18px;fill:#9e9ea7;" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="global-search-input" placeholder="Search songs, artists, albums...">
+        </div>
+
+        <div class="top-actions">
+          <button class="btn-header" id="btn-quick-host">
+            <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+            Host Together
+          </button>
+          <button class="btn-header primary" id="btn-google-login-modal">
+            <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            <span id="btn-login-label">Google Account</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Container -->
+      <div class="content-area">
+
+        <!-- 1. HOME VIEW -->
+        <section class="view-section active" id="view-home">
+          <div class="hero-banner">
+            <div class="hero-content">
+              <span class="hero-tag">Audiophile Master Edition</span>
+              <h2 class="hero-title">LISTEN by shehenshah</h2>
+              <p class="hero-desc">Immerse in pure music with high-definition album art, real-time Listen Together rooms, and integrated FxSound 64-bit DSP audio enhancement.</p>
+            </div>
+          </div>
+
+          <div class="section-header" style="margin-top: 28px;">
+            <h2>Trending Tracks</h2>
+            <a id="link-view-all-tracks">Explore All</a>
+          </div>
+
+          <div class="cards-grid" id="home-featured-grid">
+            <!-- Dynamic song cards with thumbnails injected here -->
+          </div>
+
+          <div class="section-header" style="margin-top: 36px;">
+            <h2>Curated Playlists</h2>
+          </div>
+          <div class="cards-grid" id="home-playlists-grid">
+            <!-- Playlists injected here -->
+          </div>
+        </section>
+
+        <!-- 2. SEARCH VIEW -->
+        <section class="view-section" id="view-search">
+          <div class="section-header">
+            <h2>Music Search</h2>
+            <span id="search-status-text" style="color:var(--text-muted); font-size:0.85rem;">Showing top recommendations</span>
+          </div>
+
+          <div class="tracks-table-container">
+            <table class="tracks-table">
+              <thead>
+                <tr>
+                  <th style="width: 48px;">#</th>
+                  <th>Title & Artist</th>
+                  <th>Album</th>
+                  <th style="width: 100px;">Duration</th>
+                  <th style="width: 120px; text-align: center;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="search-results-tbody">
+                <!-- Search results injected here -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 3. YOUR LIBRARY VIEW -->
+        <section class="view-section" id="view-library">
+          <div class="section-header">
+            <h2>Your Music Library</h2>
+            <span id="library-count" style="color:var(--accent-green); font-size:0.85rem;">0 Liked Tracks</span>
+          </div>
+          <div class="cards-grid" id="library-grid">
+            <!-- Library cards injected here -->
+          </div>
+        </section>
+
+        <!-- 4. DOWNLOADS VIEW -->
+        <section class="view-section" id="view-downloads">
+          <div class="section-header">
+            <div>
+              <h2>Downloaded Songs</h2>
+              <p style="color:var(--text-secondary); font-size:0.82rem; margin-top:4px;">High quality offline songs saved locally on your computer</p>
+            </div>
+            <button class="btn-header primary" id="btn-open-downloads-folder">
+              <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+              Open Downloads Folder
+            </button>
+          </div>
+
+          <div class="tracks-table-container">
+            <table class="tracks-table">
+              <thead>
+                <tr>
+                  <th style="width: 48px;">#</th>
+                  <th>Track</th>
+                  <th>Saved File</th>
+                  <th>Downloaded Date</th>
+                  <th style="width: 100px; text-align: center;">Play</th>
+                </tr>
+              </thead>
+              <tbody id="downloads-tbody">
+                <!-- Downloaded tracks injected here -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 5. LISTEN TOGETHER VIEW -->
+        <section class="view-section" id="view-listen-together">
+          <div class="section-header">
+            <h2>Play & Listen Together</h2>
+            <span style="color:var(--text-secondary); font-size:0.85rem;">Synced live listening with friends</span>
+          </div>
+
+          <div class="listen-together-grid">
+            <!-- Host Session Card -->
+            <div class="session-box">
+              <h3>Host a Session</h3>
+              <p>Start a listening session room. Share your unique room code with friends so they can join and hear what you play simultaneously in real time.</p>
+              
+              <div id="host-controls">
+                <button class="btn-action success" id="btn-start-hosting">
+                  <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                  Generate Room & Host
+                </button>
+              </div>
+
+              <div id="host-active-panel" style="display: none; flex-direction: column; gap: 14px;">
+                <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Your Room Code (Click to Copy):</span>
+                <div class="room-code-display" id="host-room-code-box" title="Click to Copy">LSTN-0000</div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: var(--accent-green); font-size: 0.88rem; font-weight: 600;" id="host-listener-count">👥 0 Listeners connected</span>
+                  <button class="btn-action danger" style="padding: 8px 18px; font-size: 0.8rem;" id="btn-stop-hosting">End Session</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Join Session Card -->
+            <div class="session-box">
+              <h3>Join a Session</h3>
+              <p>Enter a friend's room code to connect and synchronize music playback, seeking, and tracks in real-time.</p>
+
+              <div id="join-controls" style="display:flex; flex-direction:column; gap:12px;">
+                <input type="text" class="input-styled" id="join-room-code-input" placeholder="Enter Room Code (e.g. LSTN-4892)">
+                <input type="text" class="input-styled" id="join-host-ip-input" placeholder="Host IP (Optional, default: localhost)">
+                <button class="btn-action primary" id="btn-join-session">
+                  <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v10z"/></svg>
+                  Join Room
+                </button>
+              </div>
+
+              <div id="client-active-panel" style="display: none; flex-direction: column; gap: 14px;">
+                <div class="room-code-display" style="border-color: var(--accent-blue); color: var(--accent-blue);" id="client-room-display">CONNECTED</div>
+                <p style="color: var(--accent-green); font-size: 0.88rem; font-weight: 600;">✓ Synced with host playback.</p>
+                <button class="btn-action danger" style="padding: 8px 18px; font-size: 0.8rem;" id="btn-leave-session">Leave Room</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. FXSOUND AUDIO ENHANCER VIEW -->
+        <section class="view-section" id="view-fxsound">
+          <div class="fxsound-panel">
+            <div class="fxsound-header">
+              <div class="fxsound-branding">
+                <div class="fxsound-logo-badge">FxSound</div>
+                <div class="fxsound-titles">
+                  <h2>Audio Quality Enhancer & DSP</h2>
+                  <p>64-bit real-time harmonic restoration, vocal clarity, dynamic maximizer, and 3D surround sound</p>
+                </div>
+              </div>
+
+              <div class="fxsound-power-toggle">
+                <span style="font-size: 0.85rem; font-weight: 700; color: #fff;">POWER:</span>
+                <button class="power-btn active" id="btn-fxsound-master-power" title="Toggle FxSound DSP Audio Enhancement">
+                  <svg viewBox="0 0 24 24"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Live Spectrum Analyzer Visualizer -->
+            <div class="visualizer-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.76rem; color:var(--fxsound-glow); font-weight:700; text-transform:uppercase; letter-spacing:1px;">Real-Time Spectrum Analyzer</span>
+                <span id="visualizer-status" style="font-size:0.72rem; color:var(--text-muted);">ACTIVE DSP OUTPUT</span>
+              </div>
+              <canvas id="fxsound-visualizer" width="800" height="90"></canvas>
+            </div>
+
+            <!-- Presets Section -->
+            <div>
+              <span style="display:block; font-size:0.76rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; letter-spacing:1px;">Acoustic Presets</span>
+              <div class="presets-container">
+                <div class="preset-chip active" data-preset="music">Music (High Fidelity)</div>
+                <div class="preset-chip" data-preset="bass-boost">Bass Explosion</div>
+                <div class="preset-chip" data-preset="voice">Voice & Podcast Boost</div>
+                <div class="preset-chip" data-preset="gaming">Gaming & Spatial 3D</div>
+                <div class="preset-chip" data-preset="cinematic">Cinematic Concert</div>
+                <div class="preset-chip" data-preset="flat">Flat / Studio Clean</div>
+              </div>
+            </div>
+
+            <!-- DSP Audio Enhancer Sliders -->
+            <div class="dsp-effects-grid">
+              <!-- 1. Clarity / Fidelity -->
+              <div class="effect-card">
+                <div class="effect-card-header">
+                  <h3>Clarity & Fidelity</h3>
+                  <span class="effect-val-badge" id="val-fidelity">75%</span>
+                </div>
+                <p class="effect-desc">Harmonic exciter that restores crisp highs, transient snap, and acoustic air.</p>
+                <input type="range" class="slider-styled" id="slider-fidelity" min="0" max="100" value="75">
+              </div>
+
+              <!-- 2. Bass Boost -->
+              <div class="effect-card">
+                <div class="effect-card-header">
+                  <h3>Bass Boost</h3>
+                  <span class="effect-val-badge" id="val-bass">65%</span>
+                </div>
+                <p class="effect-desc">Deep resonant sub-bass weight and tight punch without speaker distortion.</p>
+                <input type="range" class="slider-styled" id="slider-bass" min="0" max="100" value="65">
+              </div>
+
+              <!-- 3. Dynamic Boost (Maximizer) -->
+              <div class="effect-card">
+                <div class="effect-card-header">
+                  <h3>Dynamic Boost</h3>
+                  <span class="effect-val-badge" id="val-dynamic">70%</span>
+                </div>
+                <p class="effect-desc">Lookahead peak maximizer for louder, richer, and punchier overall sound.</p>
+                <input type="range" class="slider-styled" id="slider-dynamic" min="0" max="100" value="70">
+              </div>
+
+              <!-- 4. 3D Surround Sound -->
+              <div class="effect-card">
+                <div class="effect-card-header">
+                  <h3>3D Surround Sound</h3>
+                  <span class="effect-val-badge" id="val-surround">60%</span>
+                </div>
+                <p class="effect-desc">Binaural phase spatializer expanding the soundstage far beyond your headphones.</p>
+                <input type="range" class="slider-styled" id="slider-surround" min="0" max="100" value="60">
+              </div>
+
+              <!-- 5. Voice Enhancer -->
+              <div class="effect-card">
+                <div class="effect-card-header">
+                  <h3>Voice Enhancer</h3>
+                  <span class="effect-val-badge" id="val-voice">65%</span>
+                </div>
+                <p class="effect-desc">Targeted formant booster projecting lead vocals and speech forward in the mix.</p>
+                <input type="range" class="slider-styled" id="slider-voice" min="0" max="100" value="65">
+              </div>
+            </div>
+
+            <!-- 10-Band Graphic Equalizer -->
+            <div class="eq-section">
+              <div class="section-header" style="margin-bottom: 0;">
+                <h3 style="font-size: 1.1rem; font-weight: 700;">10-Band Graphic Equalizer</h3>
+                <span style="font-size: 0.78rem; color: var(--accent-green); font-weight: 600;">Range: -12 dB to +12 dB</span>
+              </div>
+
+              <div class="eq-bands-wrapper" id="eq-sliders-container">
+                <!-- 10 bands injected dynamically -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 7. SETTINGS & ABOUT VIEW -->
+        <section class="view-section" id="view-settings">
+          <div class="about-card">
+            <div class="about-header">
+              <div class="about-avatar-shehenshah">S</div>
+              <div class="about-meta">
+                <h3>LISTEN by shehenshah</h3>
+                <p>Created by Sourav (shehenshah)</p>
+              </div>
+            </div>
+
+            <p style="color:var(--text-secondary); line-height: 1.6; font-size: 0.92rem;">
+              <strong>LISTEN by shehenshah</strong> is an open-source, ultra-fast, high-fidelity music streaming and co-listening desktop player. 
+              Engineered with an integrated 64-bit <strong>FxSound DSP Audio Enhancer</strong>, Google Account integration, direct lossless song downloader, 
+              and synchronized Play &amp; Listen Together party sessions.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <span>Application Name</span>
+                <strong>LISTEN by shehenshah</strong>
+              </div>
+              <div class="info-item">
+                <span>Developer &amp; Creator</span>
+                <strong>shehenshah (Sourav)</strong>
+              </div>
+              <div class="info-item">
+                <span>Audio Engine</span>
+                <strong>FxSound 64-bit DSP Master Engine</strong>
+              </div>
+              <div class="info-item">
+                <span>Authentication</span>
+                <strong id="settings-auth-status">Google Account Connected</strong>
+              </div>
+              <div class="info-item">
+                <span>Direct Downloads</span>
+                <strong>Lossless Audio to Local Storage</strong>
+              </div>
+              <div class="info-item">
+                <span>Social Feature</span>
+                <strong>Host &amp; Join Listen Together</strong>
+              </div>
+            </div>
+
+            <div style="margin-top: 14px; display: flex; gap: 14px;">
+              <button class="btn-action primary" id="btn-settings-sign-out">Manage Google Account</button>
+              <button class="btn-action" style="background:var(--bg-surface); color:#fff; border:1px solid var(--border-color);" id="btn-settings-open-folder">Open Downloads Folder</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Persistent Bottom Player Bar -->
+  <footer class="player-bar">
+    <!-- Left: Track info -->
+    <div class="player-left">
+      <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=120&auto=format&fit=crop&q=80" alt="Thumbnail" class="player-thumb" id="player-thumb">
+      <div class="player-meta">
+        <span class="player-title" id="player-title">Starry Night Resonance</span>
+        <span class="player-artist" id="player-artist">The Shehenshah Orchestra</span>
+      </div>
+      <div class="player-track-actions">
+        <button class="btn-player-sub" id="btn-player-like" title="Add to Library">
+          <svg style="width:18px;height:18px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </button>
+        <button class="btn-player-sub" id="btn-player-download" title="Download Song to Computer">
+          <svg style="width:18px;height:18px;" viewBox="0 0 24 24"><path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Center: Playback Controls & Progress Bar -->
+    <div class="player-center">
+      <div class="player-controls">
+        <button class="btn-control" id="btn-shuffle" title="Shuffle">
+          <svg style="width:17px;height:17px;fill:currentColor;" viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+        </button>
+        <button class="btn-control" id="btn-prev" title="Previous Track">
+          <svg style="width:20px;height:20px;fill:currentColor;" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+        </button>
+        <button class="btn-control play-pause" id="btn-play-pause" title="Play / Pause">
+          <svg style="width:20px;height:20px;fill:currentColor;" viewBox="0 0 24 24" id="play-pause-icon"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="btn-control" id="btn-next" title="Next Track">
+          <svg style="width:20px;height:20px;fill:currentColor;" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+        <button class="btn-control" id="btn-repeat" title="Repeat">
+          <svg style="width:17px;height:17px;fill:currentColor;" viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+        </button>
+      </div>
+
+      <div class="progress-container">
+        <span class="time-label" id="current-time">0:00</span>
+        <div class="progress-bar-bg" id="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        </div>
+        <span class="time-label" id="total-duration">3:34</span>
+      </div>
+    </div>
+
+    <!-- Right: Quick FxSound Toggle & Volume -->
+    <div class="player-right">
+      <button class="quick-fxsound-btn active" id="btn-quick-fxsound" title="Toggle FxSound Audio Enhancer live during song">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        <span>FxSound ON</span>
+      </button>
+
+      <div class="volume-container">
+        <button class="btn-control" id="btn-volume-icon">
+          <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        </button>
+        <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="0.8">
+      </div>
+    </div>
+  </footer>
+
+  <!-- Hidden native audio element for streaming playback -->
+  <audio id="audio-player" crossorigin="anonymous"></audio>
+
+  <!-- Google Sign-in Modal Overlay -->
+  <div class="modal-overlay" id="google-auth-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="btn-close-modal">&times;</button>
+      <div style="text-align: center;">
+        <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #00e676, #00b0ff); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+          <svg style="width:28px;height:28px;fill:#090a0f;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
+        <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 6px;">Sign in with Google</h3>
+        <p style="font-size: 0.84rem; color: var(--text-secondary);">Access your personalized playlists, downloads, and Listen Together sessions.</p>
+      </div>
+
+      <button class="google-auth-btn" id="btn-do-google-signin">
+        <!-- Google G Logo SVG -->
+        <svg style="width:20px;height:20px;" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.89c2.28-2.1 3.65-5.2 3.65-9.12z"/>
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.89-3.03c-1.08.72-2.45 1.16-4.04 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.13C3.26 21.41 7.34 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.58H1.24C.45 8.15 0 9.99 0 12s.45 3.85 1.24 5.42l4.04-3.13z"/>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.59 1.24 6.58l4.04 3.13c.95-2.83 3.6-4.96 6.72-4.96z"/>
+        </svg>
+        <span>Continue with Google</span>
+      </button>
+
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Or Enter Google Account Name:</span>
+        <input type="text" class="input-styled" id="custom-google-name" placeholder="Sourav Roy">
+        <button class="btn-action success" style="padding:10px; font-size:0.86rem;" id="btn-custom-google-signin">Set Active Google Account</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="app-toast"></div>
+
+  <!-- Scripts -->
+  <script src="js/dsp-engine.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/music-api.js"></script>
+  <script src="js/downloader.js"></script>
+  <script src="js/listen-together.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

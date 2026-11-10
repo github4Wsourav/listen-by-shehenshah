@@ -1,0 +1,19 @@
+{
+  "name": "listen-by-shehenshah",
+  "version": "1.0.0",
+  "description": "LISTEN by shehenshah - Next-generation music player with Google Login, Listen Together, Downloader, and FxSound DSP Audio Enhancer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "shehenshah (Sourav)",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0"
+  }
+}
